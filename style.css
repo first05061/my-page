@@ -1,0 +1,25 @@
+/* style.css */
+* { box-sizing: border-box; margin: 0; }
+:root { --brand: #2f6f6a; --bg: #f4f4f0; }
+body { font-family: sans-serif; background: var(--bg); }
+
+header {                /* 제목 줄. 다음 단계에서 다크모드 버튼이 여기 들어간다 */
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 20px 40px;
+}
+
+.cards {                /* 카드들을 감쌀 컨테이너 */
+  display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;
+  padding: 20px;
+}
+.card {
+  background: white; border-radius: 12px; padding: 24px;
+  width: 240px; text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);   /* 그림자로 입체감 부여 */
+  transition: transform 0.2s;                 /* 부드러운 움직임 */
+}
+.card:hover { transform: translateY(-6px); }  /* 마우스를 올리면 살짝 위로 */
+.card img { border-radius: 50%; }             /* 원형 프로필 */
+.card .role { color: var(--brand); font-weight: bold; }
+body.dark { background: #1a1a1a; color: #eee; }
+body.dark .card { background: #2b2b2b; }

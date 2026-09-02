@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- index.html 의 body 안에 작성 -->
+<header>
+  <h1>김현준을 소개합니다</h1>
+  <button id="theme-btn">다크모드 전환</button>
+</header>
+
+<!-- main에 cards 이름표를 붙인다. 다음 단계의 CSS가 이 이름으로 카드들을 가로 배치한다.
+     제목을 header로 빼는 이유는 main이 '카드들을 담는 컨테이너' 역할을 맡기 때문이다 -->
+<main class="cards">
+
+  <!-- article: 독립적으로 의미있는 '카드 하나' -->
+  <article class="card">
+    <img src="https://placehold.co/120x120" alt="김하나 프로필 사진">
+    <h2>김현준</h2>
+    <p class="role">디지털금융 MBA</p>
+    <p>KB국민은행에서 시스템 개발 및 유지보수를 맡고 있습니다.</p>
+    <a href="https://github.com">first05061</a>
+  </article>
+  <article class="card">
+    <h2>관심분야</h2>
+    <p class="role">무엇을 파고드나</p>
+    <p>AI Agent를 이용하여 부수입 만들기</p>  
+  </article>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
