@@ -27,13 +27,11 @@ Render에 배포한 FastAPI 백엔드를 `fetch`로 호출해 그 결과를 보�
 
 ## 배포 주소
 
-> 배포 후 아래 세 줄을 본인 주소로 채웁니다.
-
 | 항목 | 주소 |
 |---|---|
 | GitHub 저장소 | https://github.com/first05061/my-page |
 | Vercel 배포 페이지 | `TODO: https://<프로젝트>.vercel.app` |
-| 백엔드 Swagger UI | `TODO: https://<서비스>.onrender.com/docs` |
+| 백엔드 Swagger UI | https://my-page-u1q8.onrender.com/docs |
 
 - 개인 소개 페이지: `/` (또는 `/index.html`)
 - 연동 실습 페이지: `/guestbook.html` — 소개 페이지 상단 링크로 접근할 수 있습니다.

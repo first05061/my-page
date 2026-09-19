@@ -5,4 +5,4 @@
 //
 // 로컬에서 테스트할 때는 주소 뒤에 ?api=http://127.0.0.1:8000 을 붙이면
 // 이 값을 임시로 덮어쓸 수 있다.
-window.API_BASE_URL = "https://my-page-api.onrender.com";
+window.API_BASE_URL = "https://my-page-u1q8.onrender.com";
