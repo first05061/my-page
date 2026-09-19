@@ -129,6 +129,11 @@ AI에게 물어본 것: 오늘은 AI를 쓰는 실습 단계는 없었지만, �
 
 ### 결과 확인
 
+배포된 Vercel 페이지(개인 소개 → 방명록 링크)에서 글을 등록하니 목록에 바로 나타났고,
+새로고침해도 그대로 남아 있었다. 화면이 아니라 서버에 저장됐기 때문이다.
+같은 글이 Render 백엔드의 `GET /entries` 응답에도 그대로 보인다 —
+**Vercel(화면) → Render(API) → DB(저장)** 가 실제로 연결된 것을 확인한 지점이다.
+
 배포된 백엔드의 Swagger UI에서 `POST /entries` 를 실행해 `201` 과
 서버가 매긴 `id`·`created_at` 이 채워진 응답을 받았다.
 Request URL 이 `https://my-page-u1q8.onrender.com/entries` 이고
