@@ -129,11 +129,24 @@ AI에게 물어본 것: 오늘은 AI를 쓰는 실습 단계는 없었지만, �
 
 ### 결과 확인
 
-- Vercel 배포 페이지에서 방명록에 글을 등록 → 새로고침해도 목록이 유지되는 것을 확인했다.
-- 같은 글이 Render 백엔드의 `/docs` → `GET /entries` 응답에도 그대로 보인다.
-- 삭제한 `id`를 다시 삭제하면 `404`가 돌아온다.
+배포된 백엔드의 Swagger UI에서 `POST /entries` 를 실행해 `201` 과
+서버가 매긴 `id`·`created_at` 이 채워진 응답을 받았다.
+Request URL 이 `https://my-page-u1q8.onrender.com/entries` 이고
+응답 헤더에 `x-render-origin-server: uvicorn` 이 찍힌 것으로
+로컬이 아니라 **Render에 배포된 서버**가 응답한 것임을 확인할 수 있다.
 
-> TODO: 배포 후 위 세 가지를 직접 확인하고, `/docs` 화면 캡처 한 장을 이 아래에 붙인다.
+![배포된 백엔드의 Swagger UI에서 방명록 등록에 성공한 화면 (201)](docs/swagger-post-201.png)
+
+이 밖에 배포 상태에서 확인한 것:
+
+| 확인 항목 | 결과 |
+|---|---|
+| `GET /entries` 로 등록한 글 조회 | 응답에 그대로 보인다 |
+| `DELETE /entries/{id}` | `200` |
+| 같은 `id` 를 다시 `DELETE` | `404` |
+| 빈 값으로 `POST` | `422` |
+| Vercel 주소에서 보낸 요청 | 허용됨 (`access-control-allow-origin` 에 내 Vercel 주소) |
+| 다른 출처에서 보낸 요청 | 차단됨 (preflight `400`) |
 
 ### 핵심 개념 되새김
 
