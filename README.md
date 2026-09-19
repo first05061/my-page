@@ -30,7 +30,7 @@ Render에 배포한 FastAPI 백엔드를 `fetch`로 호출해 그 결과를 보�
 | 항목 | 주소 |
 |---|---|
 | GitHub 저장소 | https://github.com/first05061/my-page |
-| Vercel 배포 페이지 | `TODO: https://<프로젝트>.vercel.app` |
+| Vercel 배포 페이지 | https://my-page-delta-tan.vercel.app |
 | 백엔드 Swagger UI | https://my-page-u1q8.onrender.com/docs |
 
 - 개인 소개 페이지: `/` (또는 `/index.html`)
