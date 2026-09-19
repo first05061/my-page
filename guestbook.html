@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>방명록 | 김현준 개인 소개 페이지</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>방명록 · 프론트엔드 ↔ 백엔드 연동</h1>
+  <button id="theme-btn">다크모드 전환</button>
+</header>
+
+<nav class="nav">
+  <a href="index.html">← 개인 소개 페이지</a>
+  <span class="nav-current">방명록</span>
+</nav>
+
+<main class="stack">
+
+  <!-- ① 연결 상태: 백엔드가 살아 있는지 -->
+  <section class="panel">
+    <h2>백엔드 연결 상태</h2>
+    <p class="muted">이 페이지(Vercel)가 백엔드 API(Render)를 직접 호출한 결과입니다.</p>
+    <p>호출 대상: <code id="api-url">-</code></p>
+    <p>상태: <span id="api-status" class="badge">확인 중…</span></p>
+    <p class="muted">
+      Render 무료 플랜은 15분간 요청이 없으면 휴면 상태가 되어,
+      첫 응답까지 30~60초 걸릴 수 있습니다.
+    </p>
+  </section>
+
+  <!-- ② GET /profile: API가 돌려준 JSON을 화면에 표시 -->
+  <section class="panel">
+    <h2>API로 받아온 소개 정보 <code>GET /profile</code></h2>
+    <dl id="profile-view" class="profile">
+      <div class="muted">불러오는 중…</div>
+    </dl>
+  </section>
+
+  <!-- ③ 방명록 CRUD -->
+  <section class="panel">
+    <h2>방명록 <code>GET · POST · DELETE /entries</code></h2>
+
+    <form id="entry-form" class="form" autocomplete="off">
+      <input id="entry-name" type="text" placeholder="이름" maxlength="30" required>
+      <input id="entry-message" type="text" placeholder="한 줄 남겨주세요" maxlength="200" required>
+      <button type="submit" id="submit-btn">등록</button>
+    </form>
+
+    <p id="form-error" class="error" hidden></p>
+
+    <ul id="entry-list" class="entries">
+      <li class="muted">불러오는 중…</li>
+    </ul>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <span>클라우드컴퓨팅실습 개인 과제 · 김현준</span>
+  <span><a id="docs-link" href="#">백엔드 Swagger UI (/docs)</a></span>
+</footer>
+
+<script src="config.js"></script>
+<script src="script.js"></script>
+<script src="guestbook.js"></script>
+</body>
+</html>

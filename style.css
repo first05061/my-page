@@ -1,25 +1,108 @@
 /* style.css */
 * { box-sizing: border-box; margin: 0; }
-:root { --brand: #2f6f6a; --bg: #f4f4f0; }
-body { font-family: sans-serif; background: var(--bg); }
+:root { --brand: #2f6f6a; --bg: #f4f4f0; --card: #fff; --line: #e2ded4; --ink-soft: #666; }
+body {
+  font-family: "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+  background: var(--bg); line-height: 1.65;
+}
+a { color: var(--brand); }
 
-header {                /* 제목 줄. 다음 단계에서 다크모드 버튼이 여기 들어간다 */
+header {                /* 제목 줄. 다크모드 버튼이 여기 들어간다 */
   display: flex; justify-content: space-between; align-items: center;
+  gap: 16px; flex-wrap: wrap;
   padding: 20px 40px;
 }
+header h1 { font-size: 24px; }
+#theme-btn {
+  padding: 8px 14px; border: 1px solid var(--line); border-radius: 8px;
+  background: var(--card); cursor: pointer; font-size: 13px;
+}
 
+/* 두 페이지를 오가는 이동 줄 */
+.nav {
+  display: flex; gap: 16px; align-items: center; flex-wrap: wrap;
+  padding: 0 40px 16px; font-size: 14px;
+  border-bottom: 1px solid var(--line);
+}
+.nav-current { color: var(--ink-soft); font-weight: bold; }
+
+/* ── 소개 페이지 ── */
 .cards {                /* 카드들을 감쌀 컨테이너 */
   display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;
-  padding: 20px;
+  padding: 28px 20px;
 }
 .card {
-  background: white; border-radius: 12px; padding: 24px;
-  width: 240px; text-align: center;
+  background: var(--card); border-radius: 12px; padding: 24px;
+  width: 260px; text-align: center;
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);   /* 그림자로 입체감 부여 */
   transition: transform 0.2s;                 /* 부드러운 움직임 */
 }
+.card p + p { margin-top: 10px; }
+.card a { display: inline-block; margin-top: 12px; }
 .card:hover { transform: translateY(-6px); }  /* 마우스를 올리면 살짝 위로 */
 .card img { border-radius: 50%; }             /* 원형 프로필 */
 .card .role { color: var(--brand); font-weight: bold; }
-body.dark { background: #1a1a1a; color: #eee; }
-body.dark .card { background: #2b2b2b; }
+
+/* ── 방명록(연동) 페이지 ── */
+.stack { max-width: 720px; margin: 0 auto; padding: 28px 20px; }
+.panel {
+  background: var(--card); border: 1px solid var(--line); border-radius: 12px;
+  padding: 20px 22px; margin-bottom: 20px;
+}
+.panel h2 { font-size: 17px; margin-bottom: 10px; }
+.panel h2 code, .panel p code { font-size: 12px; color: var(--brand); }
+.muted { color: var(--ink-soft); font-size: 13.5px; }
+
+.badge {
+  display: inline-block; padding: 2px 10px; border-radius: 12px;
+  font-size: 13px; background: #eceae3;
+}
+.badge.ok   { background: #dff0ea; color: #1f5f52; }
+.badge.fail { background: #fbe4dc; color: #a1391a; }
+.error { color: #a1391a; font-size: 14px; margin-top: 8px; }
+
+.profile { display: grid; grid-template-columns: 90px 1fr; gap: 6px 12px; font-size: 14.5px; }
+.profile dt { color: var(--ink-soft); }
+
+.form { display: flex; gap: 8px; flex-wrap: wrap; margin: 14px 0; }
+.form input { padding: 9px 12px; border: 1px solid var(--line); border-radius: 8px; font-size: 14px; }
+.form input:first-child { width: 120px; }
+.form input:nth-child(2) { flex: 1; min-width: 180px; }
+.form button {
+  padding: 9px 18px; border: 0; border-radius: 8px;
+  background: var(--brand); color: #fff; cursor: pointer; font-size: 14px;
+}
+.form button:disabled { opacity: 0.6; cursor: default; }
+
+.entries { list-style: none; padding: 0; margin-top: 8px; }
+.entry {
+  display: flex; justify-content: space-between; align-items: flex-start; gap: 12px;
+  padding: 12px 0; border-top: 1px solid var(--line);
+}
+.entry .when { color: var(--ink-soft); font-size: 12px; margin-left: 8px; }
+.entry p { margin-top: 4px; font-size: 14.5px; word-break: break-word; }
+.entry .del {
+  flex-shrink: 0; padding: 4px 10px; font-size: 12px; cursor: pointer;
+  border: 1px solid var(--line); border-radius: 6px; background: transparent; color: var(--ink-soft);
+}
+
+.foot {
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+  max-width: 720px; margin: 0 auto; padding: 20px;
+  border-top: 1px solid var(--line); font-size: 12.5px; color: var(--ink-soft);
+}
+
+/* ── 다크모드 ── */
+body.dark {
+  --bg: #1a1a1a; --card: #2b2b2b; --line: #3d3d3d; --ink-soft: #a5a5a5;
+  background: var(--bg); color: #eee;
+}
+body.dark #theme-btn, body.dark .form input { color: #eee; }
+body.dark .badge { background: #3a3a3a; }
+body.dark .badge.ok   { background: #21463d; color: #9fd9c8; }
+body.dark .badge.fail { background: #4a2b22; color: #f0b3a0; }
+body.dark .error { color: #f0b3a0; }
+
+@media (max-width: 600px) {
+  header, .nav { padding-left: 20px; padding-right: 20px; }
+}

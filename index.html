@@ -1,36 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>김현준 | 개인 소개 페이지</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- index.html 의 body 안에 작성 -->
+
 <header>
   <h1>김현준을 소개합니다</h1>
   <button id="theme-btn">다크모드 전환</button>
 </header>
 
-<!-- main에 cards 이름표를 붙인다. 다음 단계의 CSS가 이 이름으로 카드들을 가로 배치한다.
-     제목을 header로 빼는 이유는 main이 '카드들을 담는 컨테이너' 역할을 맡기 때문이다 -->
+<nav class="nav">
+  <span class="nav-current">소개</span>
+  <a href="guestbook.html">방명록 (API 연동 실습) →</a>
+</nav>
+
 <main class="cards">
 
-  <!-- article: 독립적으로 의미있는 '카드 하나' -->
   <article class="card">
-    <img src="https://placehold.co/120x120" alt="김하나 프로필 사진">
+    <img src="https://placehold.co/120x120" alt="김현준 프로필 사진">
     <h2>김현준</h2>
     <p class="role">디지털금융 MBA</p>
     <p>KB국민은행에서 시스템 개발 및 유지보수를 맡고 있습니다.</p>
-    <a href="https://github.com">first05061</a>
+    <a href="https://github.com/first05061">first05061</a>
   </article>
+
   <article class="card">
     <h2>관심분야</h2>
     <p class="role">무엇을 파고드나</p>
-    <p>AI Agent를 이용하여 부수입 만들기</p>  
+    <p>AI Agent를 이용하여 부수입 만들기</p>
+    <p>클라우드 위에서 돌아가는 서비스를 직접 만들고 배포하는 것</p>
   </article>
+
+  <article class="card">
+    <h2>이 페이지는</h2>
+    <p class="role">어떻게 만들었나</p>
+    <p>HTML·CSS·JavaScript로 직접 작성했고, GitHub에 올려 Vercel로 배포했습니다.</p>
+    <p>방명록 기능은 Render에 배포한 FastAPI 백엔드와 연동되어 있습니다.</p>
+    <a href="guestbook.html">방명록 남기러 가기</a>
+  </article>
+
 </main>
+
+<footer class="foot">
+  <span>클라우드컴퓨팅실습 개인 과제 · 김현준</span>
+  <span><a href="https://github.com/first05061/my-page">GitHub 저장소</a></span>
+</footer>
+
 <script src="script.js"></script>
 </body>
 </html>
